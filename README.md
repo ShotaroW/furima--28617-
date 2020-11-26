@@ -14,9 +14,7 @@
 | birth_date   | date | null: false |
 
 ### Association
-
-- has_many :item_users
-- has_many :items, through: item_users
+- has_many :item
 - has_many :record
 
 ## items テーブル
@@ -31,7 +29,7 @@
 | status_id   | integer | null: false |
 | fee_id   | integer | null: false |
 | area_id   | integer | null: false |
-| days to ship_id   | integer | null: false |
+| days_to_ship_id   | integer | null: false |
 
 ### Association
 
@@ -43,7 +41,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| items   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 | address | references | null: false, foreign_key: true |
 
 ### Association
@@ -56,7 +54,7 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| area_id   | references | null: false, foreign_key: true |
+| area_id   | integer | null: false |
 | City | string     |    null: false                  |
 | street_number | string     |    null: false          |
 | village_number | string     |  ------------------------------  |
