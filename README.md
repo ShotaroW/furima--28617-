@@ -14,8 +14,8 @@
 | birth_date   | date | null: false |
 
 ### Association
-- has_many :item
-- has_many :record
+- has_many :items
+- has_many :records
 
 ## items テーブル
 
@@ -42,7 +42,7 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
+| address | string | null: false |
 
 ### Association
 
