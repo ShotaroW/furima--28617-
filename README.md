@@ -23,7 +23,7 @@
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | price   | integer | null: false |
-| text   | text | null: false |
+| description_of_item   | integer | null: false |
 | user   | references | null: false, foreign_key: true |
 | category_id | integer | null: false |
 | status_id   | integer | null: false |
@@ -47,13 +47,14 @@
 
 - belongs_to :item
 - belongs_to :user
+- has_one :address
 
 ## address テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | area_id   | integer | null: false |
-| City | string     |    null: false                  |
+| city | string     |    null: false                  |
 | street_number | string     |    null: false          |
 | village_number | string     |  ------------------------------  |
 | post_number | string     |    null: false                  |
