@@ -42,13 +42,11 @@
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
 | item   | references | null: false, foreign_key: true |
-| address | string | null: false |
 
 ### Association
 
 - belongs_to :item
 - belongs_to :user
-- has_one :address
 
 ## address テーブル
 
