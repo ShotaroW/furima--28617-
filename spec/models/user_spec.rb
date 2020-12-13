@@ -9,20 +9,12 @@ describe User do
       it "nicknameとemail、passwordとpassword_confirmation、first＿nameとlast_name、first＿name_readingとlast_name_reading、birth_dateが存在すれば登録できる" do
         expect(@user).to be_valid
       end
-      it "nicknameが6文字以下で登録できる" do
-        @user.nickname = "aaaaaa"
-        expect(@user).to be_valid
-      end
       it "passwordが6文字以上であれば登録できる" do
         @user.password = "000000"
         @user.password_confirmation = "000000"
         expect(@user).to be_valid
       end
-      it "passwordに半角英語だけだと登録できない" do
-        @user.password = 'aaaaaaa'
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Password  half-width characters")
-      end
+      
       it "passwordを2回入力すれば登録できる" do
         @user.password_confirmation = ""
         @user.valid?
@@ -35,12 +27,6 @@ describe User do
         @user.valid?
        expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
-      it "nicknameが7文字以上であれば登録できない" do
-        @user.nickname = "aaaaaaa"
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is too long (maximum is 6 characters")
-      end
-
       it "emailが空では登録できない" do
         @user.email = ""
         @user.valid?
@@ -57,6 +43,11 @@ describe User do
         another_user.email = @user.email
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
+      end
+      it "passwordに半角英語だけだと登録できない" do
+        @user.password = 'aaaaaaa'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Password  half-width characters")
       end
       it "passwordが空では登録できない" do
         @user.password = ""
