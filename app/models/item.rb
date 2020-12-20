@@ -1,9 +1,4 @@
 class Item < ApplicationRecord
-  
-  has_one_attached :category_id, :text, presence: true
-
-  validates :content, presence: true
-
   belongs_to :user
   belongs_to :price
   belongs_to :item_description
@@ -12,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship_id
   belongs_to_active_hash :fee_id
   belongs_to_active_hash :status_id
+  has_one_attached :image
+
 
 
   validates :price, null:false,numericality: { only_integer: true,greater_than: 300, less_than: 9999999},format: { with:/\d/}
