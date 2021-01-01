@@ -1,4 +1,7 @@
 <%= render "shared/header" %>
+<% @message.images.each do |image| %>
+  <%= image_tag image, class: 'images' %>
+<% end %>
 
 <%# 商品の概要 %>
 <div class="item-show">

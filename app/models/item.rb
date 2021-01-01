@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days_to_ship
   belongs_to_active_hash :fee
   belongs_to_active_hash :status
-  has_one_attached :image
+  has_many_attached :image
 
 
 
@@ -22,4 +22,10 @@ class Item < ApplicationRecord
   validates :status, numericality: { other_than: 1 }
   validates :price, numericality: { other_than: 1 }
 
+
+  validates :content, presence: true, unless: :was_attached?
+
+  def was_attached?
+    self.image.attached?
+  end
 end
