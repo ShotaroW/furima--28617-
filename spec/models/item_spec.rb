@@ -50,25 +50,50 @@ describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category is not a number")
       end
+      it "カテゴリーのidが1の場合に保存できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
       it "商品状態の情報がない場合に保存できない" do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Status is not a number")
+      end
+      it "商品状態のidが1の場合に保存できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
       it "配送料の負担がない場合に保存できない" do
         @item.fee_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Fee is not a number")
       end
+      it "配送料のidが1の場合に保存できない" do
+        @item.fee_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Fee must be other than 1")
+      end
       it "発送元の情報がない場合に保存できない" do
         @item.area_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Area is not a number")
       end
+      it "発送元のidが1の場合に保存できない" do
+        @item.area_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
+      end
       it "発送までの日数がない場合に保存できない" do
         @item.days_to_ship_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Days to ship is not a number")
+      end
+      it "発送までののidが1の場合に保存できない" do
+        @item.days_to_ship_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days to ship must be other than 1")
       end
     end
   end

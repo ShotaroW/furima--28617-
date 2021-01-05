@@ -4,7 +4,6 @@ window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
-    console.log(inputValue);
   
 
   //販売手数料を表示する場所のidセレクタ
