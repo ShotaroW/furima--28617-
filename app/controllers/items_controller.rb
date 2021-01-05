@@ -25,4 +25,6 @@ class ItemsController < ApplicationController
        :area_id,
        :days_to_ship_id ).merge(user_id: current_user.id)
     end
+
+
 end
