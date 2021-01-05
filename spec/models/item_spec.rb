@@ -25,10 +25,15 @@ describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
-      it "商品の価格が¥300~¥9,999,999以外の場合に保存できない" do
+      it "商品の価格が¥299以下の場合に保存できない" do
         @item.price = 200
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+      it "商品の価格が¥10,000,000以上の場合に保存できない" do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
       it "商品の説明がない場合に保存できない" do
         @item.item_description = nil

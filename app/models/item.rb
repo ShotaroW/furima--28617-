@@ -24,9 +24,6 @@ class Item < ApplicationRecord
   
 
 
-  validates :image, presence: true, unless: :was_attached?
+  validates :image, presence: true
 
-  def was_attached?
-    self.image.attached?
-  end
 end
