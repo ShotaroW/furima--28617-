@@ -10,7 +10,7 @@ describe Item, type: :model do
         expect(@item).to be_valid
       end
       it "商品の価格が¥300~¥9,999,999の場合に保存される"do
-      @item.price = "5000"
+      @item.price = 5000
       expect(@item).to be_valid
       end
   
