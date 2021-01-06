@@ -31,7 +31,7 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it "商品の価格が¥299以下の場合に保存できない" do
-        @item.price = 200
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
