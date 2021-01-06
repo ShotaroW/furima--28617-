@@ -25,6 +25,11 @@ describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
+      it "商品の価格が半角数字でないと保存できない" do
+        @item.price = "あ"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
       it "商品の価格が¥299以下の場合に保存できない" do
         @item.price = 200
         @item.valid?
@@ -98,6 +103,4 @@ describe Item, type: :model do
     end
   end
 end
-
-
 end

@@ -15,13 +15,14 @@ class Item < ApplicationRecord
 
   validates_numericality_of :price,{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   
-  
-  validates :area_id, numericality: { other_than: 1 }
-  validates :category_id, numericality: { other_than: 1 }
-  validates :days_to_ship_id, numericality: { other_than: 1 }
-  validates :fee_id, numericality: { other_than: 1 }
-  validates :status_id, numericality: { other_than: 1 }
-  
+  with_options numericality: { other_than:1} do
+  validates :area_id
+  validates :category_id
+  validates :days_to_ship_id
+  validates :fee_id
+  validates :status_id
+  end
+
   with_options presence: true do
   validates :name, presence:true
   validates :item_description, presence:true
