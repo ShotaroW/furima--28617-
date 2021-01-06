@@ -23,7 +23,7 @@
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | price   | integer | null: false |
-| item_description   | integer | null: false |
+| item_description   | text | null: false |
 | user   | references | null: false, foreign_key: true |
 | category_id | integer | null: false |
 | status_id   | integer | null: false |
