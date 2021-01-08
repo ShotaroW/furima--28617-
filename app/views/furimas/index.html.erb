@@ -122,6 +122,7 @@
 
   <%# 商品一覧 %>
   <div class='item-contents'>
+   <% @items.each do |item| %>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
@@ -133,9 +134,11 @@
           <%= image_tag "item-sample.png", class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
+          <% if items.id ==active_atrage_attachment.id%>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
+          <% end %>
           <%# //商品が売れていればsold outを表示しましょう %>
 
         </div>
@@ -177,6 +180,7 @@
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
     </ul>
+  <% end %>
   </div>
   <%# /商品一覧 %>
 </div>
