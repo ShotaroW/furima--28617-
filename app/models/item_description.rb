@@ -1,0 +1,3 @@
+class ItemDescription < ApplicationRecord
+
+end

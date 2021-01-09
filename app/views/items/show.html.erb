@@ -1,4 +1,7 @@
 <%= render "shared/header" %>
+<% @message.images.each do |image| %>
+  <%= image_tag image, class: 'images' %>
+<% end %>
 
 <%# 商品の概要 %>
 <div class="item-show">
@@ -102,7 +105,9 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
+  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+  <a href=“#” class=‘another-item’><%= "商品のカテゴリー名" %>をもっと見る</a>
+  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>
