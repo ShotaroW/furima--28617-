@@ -129,12 +129,13 @@
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <li class='list'>
+
         <%= link_to "#" do %>
         <div class='item-img-content'>
           <%= image_tag "item-sample.png", class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
-          <% if items.id ==active_atrage_attachment.id%>
+          <% if item.record != nil %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
@@ -154,7 +155,7 @@
             </div>
           </div>
         </div>
-        <% end %>
+       <% end%>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
 
