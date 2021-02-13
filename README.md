@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :records
+- has_many :orders
 
 ## items テーブル
 
@@ -34,9 +34,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :record
+- has_one :order
 
-## record テーブル
+## order テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -52,14 +52,14 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
+| post_code | string     |    null: false                  |
 | area_id   | integer | null: false |
 | city | string     |    null: false                  |
-| street_number | string     |    null: false          |
-| village_number | string     |  ------------------------------  |
-| post_number | string     |    null: false                  |
-| telephone_number | string     |    null: false                  |
-| record   | references | null: false, foreign_key: true |
+| address | string     |    null: false          |
+| house_number | string     |  ------------------------------  |
+| phone_number | string     |    null: false                  |
+| order   | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :record
+- belongs_to :order
