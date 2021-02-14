@@ -1,6 +1,6 @@
 class Form
 include ActiveModel::Model
-  attr_accessor :post_code, :area_id, :city, :address, :house_number, :phone_number,:item_id, :user_id
+  attr_accessor :post_code, :area_id, :city, :address, :house_number, :phone_number,:item_id, :user_id, :token
 
 
   with_options presence: true do
@@ -10,16 +10,8 @@ include ActiveModel::Model
     validates :address
     validates :house_number
     validates :phone_number, format: {with: /\A\d{10}\z|\A\d{11}\z/ , message: "is invalid."}
-    validates :token
+    validates :token, presence: true
   end
-
-  with_options presence: true do
-    validates :post_code, presence:true
-    validates :city, presence:true
-    validates :address, presence:true
-    validates :house_number, presence: true
-    validates :phone_number, presence:true
-    end
 
   def save
     Order.create(user_id: user_id, item_id: item_id)
