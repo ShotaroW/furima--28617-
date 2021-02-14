@@ -1,3 +1,3 @@
 class Order < ApplicationRecord
- has_one :adress
+ has_one :address
 end
