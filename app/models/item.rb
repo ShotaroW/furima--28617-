@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :fee
   belongs_to_active_hash :status
   has_one_attached :image
-
+  has_one :order
 
 
   validates_numericality_of :price,{only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
