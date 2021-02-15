@@ -26,6 +26,10 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+  
+
+  private
+
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
@@ -34,8 +38,6 @@ class OrdersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
-
-  private
 
   def order_params
     params.require(:form).permit(
