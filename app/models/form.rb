@@ -9,9 +9,9 @@ include ActiveModel::Model
     validates :city, format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "is invalid. Input full-width characters."}
     validates :address
     validates :phone_number, format: {with: /\A\d{10}\z|\A\d{11}\z/ , message: "is invalid."}
-    validates :token, presence: true
-    validates :item_id, presence: true
-    validates :user_id, presence: true
+    validates :token
+    validates :item_id
+    validates :user_id
   end
 
   def save

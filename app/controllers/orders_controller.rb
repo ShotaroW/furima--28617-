@@ -21,14 +21,12 @@ class OrdersController < ApplicationController
       render :index
     end
   end
+  
+  private
 
   def set_order   
     @item = Item.find(params[:item_id])
   end
-
-  
-
-  private
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
