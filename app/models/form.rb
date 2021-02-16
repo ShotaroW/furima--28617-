@@ -14,8 +14,11 @@ include ActiveModel::Model
     validates :user_id
   end
 
+
+   #user _ User.create
+   #user.id ,user.nickname
   def save
-    Order.create(user_id: user_id, item_id: item_id)
-    Address.create(post_code: post_code,area_id: area_id ,city: city, address: address, house_number: house_number, phone_number: phone_number)
+    order = Order.create(user_id: user_id, item_id: item_id)
+    Address.create(post_code: post_code,area_id: area_id ,city: city, address: address, house_number: house_number, phone_number: phone_number, order_id: order.id)
   end
 end

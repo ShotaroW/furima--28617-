@@ -36,7 +36,7 @@
 - belongs_to :user
 - has_one :order
 
-## order テーブル
+## orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
