@@ -61,7 +61,7 @@ it'phone_numberにハイフンがあると登録できない'do
 @order.valid?
 expect(@order.errors.full_messages).to include("Phone number is invalid.")
 end
-it'phone_numberが11桁以上だと登録できない'do
+it'phone_numberが12桁以上だと登録できない'do
 @order.phone_number= "090123456789"
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number is invalid.")
