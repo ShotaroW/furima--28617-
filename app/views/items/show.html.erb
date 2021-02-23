@@ -27,14 +27,13 @@
 
 
  <% if user_signed_in? && @item.order == nil%>
- <% if current_user.id == @item.user_id %>
-    <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
-=
-    <p class='or-text'>or</p>
-    <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
-     <% end %>
-<% else '商品が出品中かどうか' %>
+  <% if current_user.id == @item.user_id %>
+      <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %> 
+  <% else '商品が出品中かどうか' %>
     <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
+  <% end %>
 <% end %>
 
     <div class="item-explain-box">
@@ -44,7 +43,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <td class="detail-value"><%= %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
